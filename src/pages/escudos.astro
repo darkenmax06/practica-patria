@@ -1,0 +1,116 @@
+---
+import Layout from "../components/Layout.astro"
+import Card from "../components/Card.astro"
+const escudos = [
+  {
+    title: "1844A",
+    img: "/1844a.webp",
+    description: "El escudo inicial de 1844a fue una representación simbólica de los ideales y la lucha del pueblo dominicano por la independencia. En su parte superior, destacaba un gorro frigio, un símbolo clásico de libertad y emancipación, que encapsulaba el anhelo de autodeterminación. En el centro del escudo, una biblia abierta simbolizaba la fe y la moral que guiaban a la nación en su búsqueda de libertad y justicia. En la parte inferior, dos lanzas cruzadas denotaban la valentía y la determinación del pueblo dominicano para defender su soberanía contra la opresión y la tiranía. Este diseño encapsulaba los valores fundamentales de la lucha por la independencia y la búsqueda de un futuro autónomo y próspero para la República Dominicana."
+  },  {
+    title: "1844B",
+    img: "/1844b.webp",
+    description: "La modificación de 1844b del escudo dominicano mantuvo la esencia de su predecesora, pero con una adición significativa: una estrella colocada sobre el gorro frigio. Esta estrella, resplandeciente sobre el símbolo de la libertad, representaba la guía luminosa que orientaba al pueblo dominicano en su camino hacia la libertad y la soberanía. Simbolizaba la esperanza, la claridad y la determinación del pueblo de la República Dominicana en su lucha por la independencia y la autodeterminación. Esta estrella era un faro de inspiración, un recordatorio constante del destino y la misión de la nación en su búsqueda de la libertad plena y la autogestión."
+  },  {
+    title: "1848A",
+    img: "/1848a.webp",
+    description: "La modificación de 1848a del escudo dominicano marcó un cambio estilístico significativo. Se añadieron elementos simbólicos que realzaban la representación nacional y patriótica. Las ramas de laurel, asociadas con la victoria y el honor, fueron incorporadas, resaltando los logros y la grandeza de la nación. La cinta con el lema 'República Dominicana' añadió un componente identitario crucial, enarbolando la identidad nacional y la soberanía del país. Esta adición simbolizaba la autoafirmación del pueblo dominicano y su compromiso con los valores republicanos. En conjunto, estos elementos reflejaban la gloria nacional y la identidad patriótica de la República Dominicana."
+  },  {
+    title: "1848B",
+    img: "/1848b.webp",
+    description: "La modificación de 1848b del escudo dominicano conservó la esencia de la versión anterior pero incluyó una adición significativa: otra estrella sobre el gorro frigio. Esta estrella adicional simbolizaba el aumento del fervor y la determinación del pueblo dominicano por alcanzar su independencia y soberanía. Al situarse sobre el gorro frigio, un símbolo clásico de libertad, la estrella reforzaba el compromiso de la nación con la causa de la autodeterminación y el gobierno propio. Era un recordatorio poderoso del ardor patriótico y la resolución inquebrantable del pueblo dominicano en su lucha por la libertad y la independencia."
+  },  {
+    title: "1849",
+    img: "/1849.webp",
+    description: "La modificación de 1849 del escudo dominicano presentó ajustes en la disposición de sus elementos, buscando una presentación más ordenada y equilibrada. La principal modificación fue la reorganización de la biblia y las lanzas, colocándolas sobre una base ovalada. Este cambio no solo proporcionó una estructura más organizada al escudo, sino que también creó un equilibrio visual entre los elementos. La base ovalada proporcionó un marco armonioso para los símbolos de la fe y la defensa, destacando su importancia dentro de la identidad nacional dominicana. Este ajuste reflejaba una evolución en el diseño del escudo hacia una presentación más estilizada y coherente."
+  },  {
+    title: "1853",
+    img: "/1853.webp",
+    description: "La modificación de 1853 del escudo dominicano introdujo elementos simbólicos adicionales alrededor del óvalo principal. Se incorporaron ramas de olivo y laurel, simbolizando la victoria y la paz que se anhelaba alcanzar después de la ardua lucha por la independencia. El olivo representaba la paz, la armonía y la estabilidad, mientras que el laurel era un símbolo de victoria, honor y gloria. Estas ramas, dispuestas alrededor del óvalo central, enfatizaban los ideales de paz y prosperidad que inspiraban la lucha del pueblo dominicano por un futuro libre y próspero. Era un recordatorio constante de los objetivos y aspiraciones de la nación en su búsqueda de un destino pacífico y victorioso."
+  },  {
+    title: "1857",
+    img: "/1857.webp",
+    description: "La modificación de 1857 del escudo dominicano marcó un cambio significativo en su diseño. Se realizaron ajustes en las proporciones para crear una composición más equilibrada y estéticamente agradable. Además, se añadieron estrellas al óvalo, lo que enfatizó la importancia de la identidad nacional y el orgullo patriótico de la República Dominicana. Las estrellas, símbolos de grandeza y aspiración, representaban los valores compartidos y los ideales de la nación. Su inclusión resaltaba la determinación del pueblo dominicano de alcanzar sus metas y preservar su independencia. Esta modificación reforzó la identidad nacional y fortaleció el sentido de unidad y pertenencia entre los ciudadanos dominicanos."
+  },  {
+    title: "1860",
+    img: "/1860.webp",
+    description: "La modificación de 1860 del escudo dominicano se caracterizó por la introducción de un estilo más ornamentado y detallado. Este cambio estilístico implicó la adición de elementos decorativos que embellecían el diseño del escudo, realzando su estética y significado. Los detalles ornamentales, como adornos florales o filigranas, se incorporaron para resaltar la importancia y la belleza de los símbolos nacionales representados en el escudo. Esta modificación reflejaba la profunda estima y el respeto por los valores y la identidad de la nación dominicana. La ornamentación adicional no solo embelleció el escudo, sino que también subrayó la importancia cultural y patriótica de sus símbolos."
+  },  {
+    title: "1866",
+    img: "/1866.webp",
+    description: "La modificación de 1866 del escudo dominicano se caracterizó por una simplificación de sus elementos y la introducción de nuevos símbolos. En esta versión, las lanzas cruzadas, que previamente representaban la defensa y la valentía del pueblo dominicano, fueron eliminadas. En su lugar, se agregó una cornucopia, un símbolo clásico de la abundancia y la prosperidad. Esta adición reflejaba la aspiración de la nación dominicana por alcanzar un futuro próspero y lleno de riqueza. La cornucopia simbolizaba la esperanza y la promesa de un mañana mejor para el pueblo, destacando los ideales de crecimiento y desarrollo económico de la República Dominicana."
+  },  {
+    title: "1867A",
+    img: "/1867.webp",
+    description: "La modificación de 1867 del escudo dominicano marcó un retorno a elementos previamente eliminados y la adición de nuevos símbolos. Las lanzas cruzadas, que simbolizaban la defensa y la valentía del pueblo dominicano, fueron restauradas en esta versión. Este retorno de las lanzas representaba el compromiso continuo del pueblo con la defensa de su soberanía y la lucha por la libertad. Además, se añadieron más estrellas al escudo, lo que resaltaba la fuerza y la unidad del pueblo dominicano en su búsqueda de la libertad. Las estrellas, símbolos de grandeza y aspiración, reflejaban la determinación colectiva de la nación por alcanzar sus ideales de independencia y autodeterminación. Esta modificación fortaleció el sentido de identidad nacional y el orgullo patriótico de la República Dominicana."
+  },  {
+    title: "1870",
+    img: "/1870.webp",
+    description: "La modificación de 1870 del escudo dominicano marcó un cambio hacia una presentación más austera y simplificada. Esta versión reflejaba una visión más pragmática y funcional de los símbolos nacionales, con una reducción de los elementos ornamentales y una mayor claridad en la composición del escudo. Se buscaba una representación más clara y directa de los valores y principios que guiaban a la nación dominicana. Esta simplificación del escudo reflejaba un enfoque práctico y realista hacia la representación de la identidad nacional, sin dejar de transmitir los ideales fundamentales de la República Dominicana."
+  },  {
+    title: "1874",
+    img: "/1874.webp",
+    description: "La modificación de 1874 del escudo dominicano se destacó por la restauración de las ramas de laurel y olivo, elementos simbólicos de gran importancia. Estas ramas, que representan la victoria y la paz, respectivamente, fueron reintroducidas para fortalecer la simbología del escudo. Además, se realizó una mejora en la definición y equilibrio del óvalo que alberga los símbolos centrales del escudo, lo que proporcionó una presentación más coherente y estéticamente agradable. Esta modificación contribuyó a consolidar la estética y la simbología del escudo dominicano, reafirmando los valores de victoria, paz y soberanía que la nación representaba y defendía."
+  },  {
+    title: "1898",
+    img: "/1898.webp",
+    description: "La modificación de 1889 del escudo dominicano se caracterizó por una simplificación de las ramas y un ajuste en el diseño del gorro frigio. Estos cambios tuvieron como objetivo principal buscar una armonía visual y una mayor legibilidad de los elementos del escudo. Las ramas, que probablemente representaban laurel y olivo, fueron simplificadas para mejorar su definición y claridad. El gorro frigio, un símbolo de libertad, fue rediseñado para asegurar su reconocimiento inmediato y su coherencia con el resto del escudo. Estas modificaciones contribuyeron a una representación más clara y estilizada de la identidad nacional dominicana, resaltando sus valores fundamentales de libertad, paz y soberanía."
+  },  {
+    title: "1898",
+    img: "/1898.webp",
+    description: "La modificación de 1898 del escudo dominicano se caracterizó por cambios menores en la ornamentación y la forma, que reflejaban una adaptación a los gustos estéticos y las tendencias de la época. Estos ajustes posiblemente implicaron refinamientos en los detalles ornamentales, así como en la forma y disposición de los elementos del escudo. Se buscaba modernizar y actualizar la apariencia del escudo para que estuviera en sintonía con las preferencias estilísticas del momento. Aunque los cambios fueron sutiles, reflejaron la evolución continua del diseño del escudo dominicano en respuesta a los cambios culturales y estéticos de la época."
+  },  {
+    title: "1905",
+    img: "/1905.webp",
+    description: "La modificación de 1905 del escudo dominicano se caracterizó por una serie de cambios destinados a mejorar las proporciones y agregar detalles decorativos. Estas modificaciones tenían como objetivo lograr una representación más dinámica y visualmente atractiva del escudo. Se realizaron ajustes en las proporciones de los elementos para crear una composición más equilibrada y armoniosa. Además, se añadieron detalles decorativos, como ornamentos y filigranas, que embellecieron el diseño del escudo y le otorgaron un mayor impacto visual. Estas mejoras contribuyeron a realzar la estética del escudo dominicano y a resaltar su importancia como símbolo nacional."
+  },  {
+    title: "1909",
+    img: "/1909.webp",
+    description: "La modificación de 1909 del escudo dominicano se centró en simplificar los elementos y ajustar las proporciones para lograr una representación más equilibrada y armoniosa de los símbolos nacionales. Se llevaron a cabo cambios para simplificar la ornamentación y reducir la complejidad visual del escudo, lo que permitió una mejor legibilidad de los elementos principales. Además, se realizaron ajustes en las proporciones para garantizar una disposición más armoniosa y coherente de los símbolos. Estas modificaciones reflejaban un esfuerzo por presentar el escudo de manera más clara y concisa, manteniendo al mismo tiempo su significado y simbolismo para la nación dominicana."
+  },  {
+    title: "1913",
+    img: "/1913.webp",
+    description: "La modificación de 1913 del escudo dominicano fue notable por la introducción de ramas de laurel y palma, así como una cinta con un lema, lo que enriqueció su simbolismo y significado. Las ramas de laurel y palma representaban la victoria y la gloria, así como la identidad tropical y exuberante de la República Dominicana. La cinta con el lema 'Dios, Patria, Libertad' reflejaba los valores patrióticos y espirituales que caracterizaban al pueblo dominicano en su búsqueda de libertad y autonomía. Esta modificación reafirmó la identidad nacional y los ideales de la nación, proporcionando un símbolo más completo y representativo del pueblo dominicano."
+  },  {
+    title: "1916",
+    img: "/1916.webp",
+    description: "Durante la ocupación estadounidense en 1916, el escudo dominicano fue temporalmente reemplazado, marcando un período de transición política y simbólica en la historia de la República Dominicana. Este reemplazo simbolizó la interrupción de la soberanía y la autonomía del país bajo el dominio extranjero. Durante este tiempo, la presencia y el control estadounidense alteraron significativamente la vida política, social y cultural del país. El reemplazo temporal del escudo dominicano reflejó la pérdida de autonomía y la supresión de la identidad nacional dominicana durante este período turbulento de la historia del país."
+  }
+]
+---
+
+<Layout title="Escudos Nacionales en orden cronologico" >
+  <div class="content banderas">
+    <h2 class="banderas__title" >Banderas</h2>
+    <div class="banderas__container">
+      {
+        escudos.map(res => <Card {...res}  />)
+      }
+    </div>
+  </div>
+</Layout>
+
+
+<style>
+  .banderas{
+    padding: var(--m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--m);
+    align-items: center;
+  }
+
+  .banderas__title{
+    font-family: "bold";
+    color: var(--white);
+    font-size: 30px;
+  }
+
+  .banderas__container{
+    display: grid;
+    grid-template-columns: 
+      repeat(auto-fit, 300px);
+    width: 100%;
+    justify-content: center;
+    gap: var(--m);
+  }
+</style>

@@ -1,0 +1,100 @@
+---
+const {img,title,description} = Astro.props
+---
+
+
+<article class="card" >
+  <img class="card__img" src={img} alt={title}/>
+  <h3 class="card__title" >{title}</h3>
+  <p class="card__content" >{description}</p>
+  <button class="card__toggle" >  </button>
+</article>
+
+<script>
+  const toggles = document.querySelectorAll(".card__toggle")
+  const withToggle = `Ver Menos <ion-icon name="chevron-up-outline"></ion-icon>`
+  const withoutToggle = `Ver Mas <ion-icon name="chevron-down-outline"></ion-icon>`
+
+  toggles.forEach(res => {
+    changeContent(res)
+    res.addEventListener("click", e => {
+      const parent = res.parentElement
+      parent.classList.toggle("active")
+      changeContent(res)
+    })
+  })
+
+
+  function changeContent (element){
+    const isToggle = element.parentElement.classList.contains("active")
+    const content = isToggle ? withToggle : withoutToggle
+    element.innerHTML = content
+  }
+</script>
+
+<style>
+    .card{
+    display: flex;
+    flex-direction: column;
+    gap: var(--s);
+    color: var(--white);
+  }
+
+  .card__img {
+    border-radius: var(--xs);
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card__title{
+    font-family: "bold";
+    font-size: 25px;
+  }
+
+  .card__content{
+    position: relative;
+    font-family: "medium";
+    overflow: hidden;
+    height: 150px;
+    transition: height .3s;
+  }
+
+  .card__content::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background: linear-gradient(to top ,#151e1fe0 , transparent);
+  }
+
+  .card.active .card__content::after{
+    background: none;
+  }
+
+  .card.active .card__content{
+    height: auto;
+  }
+
+  .card__toggle{
+    background: var(--blue);
+    color: var(--white);
+    font-family: "resalt";
+    font-size: 16px;
+    padding: var(--xs);
+    border-radius: var(--xs);
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--m);
+    transition: transform .3s;
+  }
+
+  .card__toggle:hover{
+    transform: scale(1.03)
+  }
+</style>

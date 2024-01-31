@@ -1,0 +1,163 @@
+---
+import Layout from "../components/Layout.astro";
+const cards = [
+
+  {
+    name: "Francisco del rosario sanchez",
+    description: "Francisco del Rosario Sánchez: Intrépido y patriota, Francisco del Rosario Sánchez fue un estratega militar y político de gran destreza. Su ferviente dedicación a la causa independentista lo convirtió en un símbolo de resistencia y valor. Sánchez desafió con determinación las adversidades y luchó incansablemente por la libertad de su pueblo. Su liderazgo ejemplar inspiró a muchos a unirse en la lucha por la emancipación nacional.",
+    date: "09/03/1817 - 04/07/1861",
+    img: "/sanchez.png"
+  },
+  {
+    name: "Juan Pablo Duarte",
+    description: "Juan Pablo Duarte: Visionario y pensador progresista, Juan Pablo Duarte es el arquitecto intelectual de la independencia dominicana. Su visión trascendental y su compromiso con la libertad inspiraron a todo un pueblo a luchar por su autonomía. Duarte fue un líder incansable, promoviendo la unidad nacional y la justicia social. Su legado perdura como símbolo de patriotismo y altruismo.",
+    date: "26/01/1813 - 15/07/1876",
+    img: "/duarte.jpg"
+  },
+  {
+    name: "Ramon Matias Mella",
+    description: "Ramón Matías Mella: Valiente y decidido, Ramón Matías Mella fue una figura clave en la gesta independentista dominicana. Su coraje y determinación en el campo de batalla lo convirtieron en un héroe nacional. Mella personificó la audacia y la entrega por la causa libertaria. Su sacrificio y firmeza inspiraron a sus compañeros a continuar la lucha por la independencia. Mella se destacó por su temple y liderazgo, dejando un legado imborrable en la historia de la República Dominicana.",
+    date: "25/02/1816 - 04/06/1864",
+    img: "/mella.png"
+  }
+]
+---
+
+
+<Layout title="Padres de la patria" >
+  <main class="content">
+    <h1 class="content__title" >Padres de la patria</h1>
+    <div class="cards__container">
+      {
+        cards.map(res => (
+          <article class="card" >
+            <img src={res.img} alt={res.name} />
+            <div class="card__textbox">
+              <h3 class="card__name"> {res.name} </h3>
+              <p class="card__description"> {res.description} </p>
+              <span class="card__date"> {res.date} </span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .content{
+    display: flex;
+    gap: var(--m);
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content__title{
+    font-family: "thin";
+    font-size: 30px;
+    color: var(--white);
+  }
+
+  .cards__container{
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    height: calc( 100vh - 70px);
+    gap: var(--s);
+  }
+
+  .cards__container:hover > :not(:hover){
+    filter: grayscale(1) blur(2px);
+  }
+
+  .card {
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: var(--xs);
+    flex-shrink: 1;
+    position: relative;
+    transition: all .3s ease-in-out;
+    transition-delay: .3s;
+  }
+
+  .card__textbox{
+    transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    padding: var(--s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--xs);
+    transition: all .3s;
+    transition-delay: 0s;
+    background: linear-gradient(to top, #00000094 70%, transparent);
+    color: var(--white);
+  }
+
+  .card__name{
+    font-family: "bold";
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+  .card__date{
+    font-family: "resalt";
+    font-size: 16px;
+  }
+
+  .card__description{
+    font-family: "medium";
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .card:hover{
+    transition-delay: 0s;
+    flex-grow: 5;
+  }
+
+  .card:hover > .card__textbox{
+    transform: translateY(0px);
+    opacity: 1;
+    transition-delay: .3s;
+    visibility: visible;
+  }
+
+  .card img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(.4);
+  }
+
+  @media (width <= 900px) {
+    .cards__container{
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+
+    .cards__container:hover > :not(:hover){
+      filter: grayscale(0) blur(0px);
+    }
+
+    .card{
+      height: 800px;
+      max-width: 500px;
+      width: 100%;
+      flex-grow: 0;
+    }
+
+    .card__textbox{
+      transform: translateY(0px);
+      opacity: 1;
+      transition-delay: .3s;
+      visibility: visible;
+    }
+  }
+</style>
+

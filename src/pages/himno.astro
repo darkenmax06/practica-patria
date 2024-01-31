@@ -1,0 +1,90 @@
+---
+import Layout from "../components/Layout.astro";
+
+const a = [
+  " Quisqueyanos valientes, alcemos Nuestro canto con viva emoción, Y del mundo a la faz ostentemos Nuestro invicto glorioso pendón.",
+  "¡Salve! el pueblo que, intrépido y fuerte, A la guerra a morir se lanzó, Cuando en bélico reto de muerte Sus cadenas de esclavo rompió.",
+  "Ningún pueblo ser libre merece Si es esclavo indolente y servil; Si en su pecho la llama no crece Que templó el heroísmo viril,",
+  "Mas Quisqueya la indómita y brava Siempre altiva la frente alzará; Que si fuere mil veces esclava Otras tantas ser libre sabrá.",
+  "Que si dolo y ardid la expusieron De un intruso señor al desdén, ¡Las Carreras! ¡Beller!, campos fueron Que cubiertos de gloria se ven.",
+  "Que en la cima de heroíco baluarte De los libres el verbo encarnó, Donde el genio de Sánchez y Duarte A ser libre o morir enseñó.",
+  "Y si pudo inconsulto caudillo De esas glorias el brillo empañar, De la guerra se vio en Capotillo La bandera de fuego ondear.",
+  "Y el incendio que atónito deja De Castilla al soberbio león, De las playas gloriosas le aleja Donde flota el cruzado pendón.",
+  "Compatriotas, mostremos erguida Nuestra frente, orgullosos de hoy más; Que Quisqueya será destruida Pero sierva de nuevo, ¡jamás!",
+  "Que es santuario de amor cada pecho Do la patria se siente vivir; Y es su escudo invencible: el derecho; Y es su lema: ser libre o morir.",
+  "¡Libertad! que aún se yergue serena La Victoria en su carro triunfal, Y el clarín de la guerra aún resuena Pregonando su gloria inmortal.",
+  "¡Libertad! Que los ecos se agiten Mientras llenos de noble ansiedad Nuestros campos de gloria repiten ¡Libertad! ¡Libertad! ¡Libertad! ",
+];
+---
+
+<Layout title="Himno nacional" >
+  <section class="himno content" >
+    <h2 class="himno__title">Himno nacional</h2>
+    <div class="himno__content">
+      {a.map((res,index) => (
+        <section class="estrofa" >
+          <h1 class="estrofa__title" >Estrofa {index + 1}</h1>
+          <p class="estrofa__content" >{res}</p>
+        </section>
+      ))}
+    </div>
+    <audio src="/himno.mp3" autoplay controls loop ></audio>
+  </section>
+</Layout>
+
+<script>
+  const seccion = document.querySelector(".himno.content")
+
+  const cb = (entries) => {
+    entries.forEach(entrie => {
+      if (entrie.isIntersecting) audio.setAttribute("autoplay",true)
+    })
+  }
+  const observer = new IntersectionObserver(cb)
+  observer.observe(seccion)
+
+  const audio = document.getElementsByTagName("audio")[0]
+</script>
+
+<style>
+  .himno{
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: var(--m);
+    max-width: 800px;
+  }
+
+  .himno__title{
+    font-size: 30px;
+    font-family: "bold";
+  }
+
+  .himno__content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--s);
+  }
+
+  .estrofa{
+    display: flex;
+    flex-direction: column;
+    gap: var(--xs);
+  }
+
+  .estrofa__title{
+    font-size: 20px;
+    font-family: "bold";
+  }
+
+  .estrofa__content{
+    font-size: 16px;
+    font-family: "medium";
+    line-height: 25px;
+  }
+
+  audio{
+    align-self: center;
+  }
+</style>

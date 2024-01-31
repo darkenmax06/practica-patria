@@ -1,0 +1,53 @@
+---
+import Layout from "../components/Layout.astro"
+import Card from "../components/Card.astro"
+
+const banderas = [
+  {
+    title: "La Bandera de la Trinitaria",
+    img: "/bandera-trinitaria.png",
+    description: "Esta fue la primera bandera utilizada durante el período de la independencia dominicana. Fue creada por los Trinitarios, un grupo revolucionario que luchó por la independencia del país del dominio haitiano. La Bandera de la Trinitaria fue adoptada oficialmente el 27 de febrero de 1844, cuando la República Dominicana declaró su independencia de Haití. Consiste en una cruz azul sobre un fondo blanco, con cuadrados rojos en cada esquina."
+  },{
+    title: "La Bandera de la República Dominicana",
+    img: "/bandera-sin-escudo.png",
+    description: " Después de algunos cambios de gobierno y ocupaciones extranjeras, la bandera actual de la República Dominicana fue adoptada el 6 de noviembre de 1863. Esta bandera tiene los mismos colores que la anterior, pero en un diseño diferente. Tiene una cruz blanca sobre un fondo rojo, con un escudo de armas en el centro. El escudo muestra un libro abierto con la Biblia, una cruz, y una espada sobre él. También tiene un laurel y una rama de palma que rodean el escudo."
+  }
+]
+---
+
+<Layout title="Banderas nacionales" >
+  <div class="content banderas">
+    <h2 class="banderas__title" >Banderas</h2>
+    <div class="banderas__container">
+      {
+        banderas.map(res => <Card {...res}  />)
+      }
+    </div>
+  </div>
+</Layout>
+
+
+<style>
+  .banderas{
+    padding: var(--m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--m);
+    align-items: center;
+  }
+
+  .banderas__title{
+    font-family: "bold";
+    color: var(--white);
+    font-size: 30px;
+  }
+
+  .banderas__container{
+    display: grid;
+    grid-template-columns: 
+      repeat(auto-fit, 300px);
+    width: 100%;
+    justify-content: center;
+    gap: var(--m);
+  }
+</style>

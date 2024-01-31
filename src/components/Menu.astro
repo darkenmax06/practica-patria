@@ -1,0 +1,129 @@
+
+<header class="menu__context" >
+  <div class="menu">
+    <h2 class="menu__logo" >
+      Beta Patria
+    </h2>
+    <ul class="menu__list" >
+      <li class="menu__item" >
+        <a href="/">Padres De La Patria</a>
+      </li>
+  
+      <li class="menu__item" >
+        <a href="/banderas">Banderas</a>
+      </li>
+  
+      <li class="menu__item" >
+        <a href="/escudos">Escudos</a>
+      </li>
+
+      <li class="menu__item" >
+        <a href="/himno">Himno Nacional</a>
+      </li>
+    </ul>
+    <button class="menu__toggle">
+      
+    </button>
+  </div>
+</header>
+
+
+<style>
+  .menu__toggle{
+    display: none;
+  }
+
+  .menu__context{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--s) var(--l);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .menu__logo{
+    background: url("/bandera.png");
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: "bold";
+    font-size: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .menu__list{
+    display: flex;
+    list-style: none;
+    gap: var(--m);
+    font-family: resalt;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .menu__item a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media (width <= 900px) {
+    .menu__context{
+      position: sticky;
+      top: 0;
+      left: 0;
+      background: inherit;
+    }
+
+    .menu__list{
+      position: fixed;
+      top: -100vh;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      backdrop-filter: blur(20px)  brightness(.2);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: -1;
+      transition: top .3s;
+    }
+
+    .menu__list.active{
+      top: 0;
+    }
+
+   .menu__toggle {
+      display: block;
+      background: transparent;
+      border: none;
+      color: var(--white);
+  }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector(".menu__toggle")
+  const menuList = document.querySelector(".menu__list")
+  let isToggle = false
+
+  btn.addEventListener("click", e => {
+    menuList.classList.toggle("active")
+    isToggle = !isToggle
+    changeIcon()
+  })
+
+  changeIcon()
+
+  function changeIcon (){
+    if (isToggle) btn.innerHTML = '<ion-icon name="close-outline" size="large" ></ion-icon>'
+    else     btn.innerHTML = '<ion-icon name="menu-outline" size="large" ></ion-icon>'
+  }
+</script>

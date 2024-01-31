@@ -1,0 +1,84 @@
+---
+import Menu from "./Menu.astro"
+const {title} = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/bandera.png" />
+		<meta name="viewport" content="width=device-width" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+		<title>{title}</title>
+	</head>
+	<body>
+    <Menu/>
+    <slot/>
+
+    <style is:global>
+      .content {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--xl) var(--m);
+      }
+
+      @font-face {
+        font-family: "bold";
+        src: url("../assets/Onest-VariableFont_wght.ttf");
+        font-weight: 900;
+      }
+
+      @font-face {
+        font-family: "resalt";
+        src: url("../assets/Onest-VariableFont_wght.ttf");
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: "medium";
+        src: url("../assets/Onest-VariableFont_wght.ttf");
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "thin";
+        src: url("../assets/Onest-VariableFont_wght.ttf");
+        font-weight: 200;
+      }
+
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        min-height: 100vh;
+        height: 100%;
+        background: 
+          radial-gradient(
+            var(--black),
+            var(--black2) 50%
+          );
+      }
+
+      :root{
+        --xs: 8px;
+        --s: 16px;
+        --m: 24px;
+        --l: 32px;
+        --xl: 64px;
+        --xxl: 128px;
+        --xxxl: 256px;
+        --blue: #237AD9;
+        --red: #E8221F;
+        --white: #F6EFE4;
+        --black: #192425;
+        --black2: #151e1f;
+      }
+    </style>
+	</body>
+</html>
